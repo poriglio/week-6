@@ -42,16 +42,36 @@ var addNumbers = function(string){
 // EXERCISE 2
 // -=-=-=-=-=
 
-// var punctuationDestroyer = function (array){
-// 	array.forEach(function(element){
-// 		for(var x=0; x<element.length;x++){
-// 			if(element.substring(x,x+1)){
-// 				element.slice(x,x+1)
-// 			}
-// 		}
-// 	})
-// 	return array
-// }
+var singleLetter = function(letter){
+	letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+	for(var x=0;x<letters.length;x++){
+		if(letter===letters[x]){
+			return true
+		}
+		else if((letter!==letters[x])&&(x===letters.length-1)){
+			return false
+		}
+	}
+}
+
+var lettersOnlyWord = function(word){
+	var word = word.split("")
+	word = word.filter(function(element){
+		if(singleLetter(element.toLowerCase())){
+			return true
+		}
+	})
+	return word.reduce(function(previousValue,currentValue,index,array){
+			return previousValue += currentValue
+	})
+}
+
+var punctuationDestroyer = function(array){
+	var newArray = array.map(function(element){
+		return lettersOnlyWord(element)
+	})
+	return newArray
+}
 
 var lengthFinder = function(array){
 	var lengths = []
@@ -88,7 +108,11 @@ var findWord = function(array,length){
 
 var longestWord = function (string){
 	var stringList = string.split(" ")
-	// stringList = punctuationDestroyer(stringList)
+	stringList = punctuationDestroyer(stringList)
 	var number = highestNumber(lengthFinder(stringList))
 	return findWord(stringList,number)
 }
+
+// -=-=-=-=--=-=-
+// BONUS EXERCISE
+// -=-=-=-=-=-=-=
