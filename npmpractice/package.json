@@ -1,0 +1,21 @@
+{
+  "name": "myapp",
+  "version": "0.0.0",
+  "description": "this is an app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "app",
+    "thisisanapp",
+    "more",
+    "keywords"
+  ],
+  "author": "Paula",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "request": "~2.64.0",
+    "underscore": "~1.8.3"
+  }
+}
