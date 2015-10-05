@@ -116,3 +116,17 @@ var longestWord = function (string){
 // -=-=-=-=--=-=-
 // BONUS EXERCISE
 // -=-=-=-=-=-=-=
+
+var bonus = function (string) {
+	var total = 0
+	var letterCount = 0
+	makeArray(string).forEach(function(element){
+		if(!isNaN(element)){
+			total += Number(element)
+		}
+		else if(singleLetter(element)){
+			letterCount++
+		}
+	})
+	return Math.round(total/letterCount)
+}
