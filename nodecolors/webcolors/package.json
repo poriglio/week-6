@@ -1,0 +1,14 @@
+{
+  "name": "webcolors",
+  "version": "1.0.0",
+  "description": "\"Webcolors projects for week 6 at RefactorU\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paula Origlio",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.64.0"
+  }
+}
