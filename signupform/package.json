@@ -1,0 +1,15 @@
+{
+  "name": "Paula",
+  "version": "0.0.0",
+  "description": "Signup Form Exercise for RefactorU",
+  "main": "signup.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paula",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "express": "~4.13.3",
+    "body-parser": "~1.14.1"
+  }
+}

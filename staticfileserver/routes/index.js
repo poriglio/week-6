@@ -12,6 +12,10 @@ router.get('/', function(req, res, next) {
 	});
 });
 
+router.get('/:filename', function(request,response){
+	response.sendFile('/:filename',{root: './public'})
+})
+
 // You can't have send AND render... one of them acts like a break or return statement and ends the response.
 
 module.exports = router;

@@ -6,3 +6,14 @@ Fileception…
 I need a nap.
 Chicken parm you taste so good.
 This is getting less arbitrary and more strange…
+
+Go ahead, request something!
+
+You can go to
+
+http://localhost:3000/stuff.txt
+			things.txt
+			data.txt
+		or 	boxen.txt
+
+Cool huh?
