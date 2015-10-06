@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="grouprModule">
+	<head>
+		<title>Groupr</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="groupr.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular.min.js"></script>
+	</head>
+	<body ng-controller="grouprController">
+		<h1>Groupr</h1>
+		<h2>Put your people right where you want them!</h2>
+		<form>
+			Add names to your group. Do this once per person.
+			<input ng-model="name" type="text" name="person" placeholder="Name...">
+			<input ng-click="submitPerson()" type="submit">
+		</form>
+		<form>
+			How many groups would you like to divide your people into?
+			<input ng-model="number" type="text" name="number" placeholder="Number...">
+			<input type="submit" ng-click="submitNumber()">
+		</form>
+		<h2>Your People</h2>
+		<ul>
+			<li ng-repeat="person in group">{{person}}</li>
+		</ul>
+		<h2>Your Groups</h2>
+		<ul class="box" ng-repeat="group in groups">
+			<li ng-repeat="person in group">{{person}}</li>
+		</ul>
+		<script src="groupr.js"></script>
+		<script src="grouprfactory.js"></script>
+	</body>
+</html>
