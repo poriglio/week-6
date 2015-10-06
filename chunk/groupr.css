@@ -1,3 +1,20 @@
-.box{
-	border: 3px solid black;
+form{
+	margin: 1.5rem;
+}
+
+form>*{
+	margin: 0.5rem;
+}
+
+.group{
+	margin: 1rem;
+	padding: 1rem;
+}
+
+.small-group{
+	background: rgb(255,227,240);
+}
+
+.large-group{
+	background: rgb(255,227,240);
 }

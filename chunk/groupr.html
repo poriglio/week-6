@@ -3,31 +3,40 @@
 	<head>
 		<title>Groupr</title>
 		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" href="groupr.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular.min.js"></script>
 	</head>
 	<body ng-controller="grouprController">
-		<h1>Groupr</h1>
-		<h2>Put your people right where you want them!</h2>
-		<form>
-			Add names to your group. Do this once per person.
-			<input ng-model="name" type="text" name="person" placeholder="Name...">
-			<input ng-click="submitPerson()" type="submit">
-		</form>
-		<form>
-			How many groups would you like to divide your people into?
-			<input ng-model="number" type="text" name="number" placeholder="Number...">
-			<input type="submit" ng-click="submitNumber()">
-		</form>
-		<h2>Your People</h2>
-		<ul>
-			<li ng-repeat="person in group">{{person}}</li>
-		</ul>
-		<h2>Your Groups</h2>
-		<ul class="box" ng-repeat="group in groups">
-			<li ng-repeat="person in group">{{person}}</li>
-		</ul>
-		<script src="groupr.js"></script>
-		<script src="grouprfactory.js"></script>
+		<div class="container">
+			<h1>Groupr</h1>
+			<h2>Put your people right where you want them!</h2>
+			<form class="form-horizontal">
+				Add people...
+				<input ng-model="name" type="text" name="person" placeholder="Name...">
+				<input class="btn btn-success" ng-click="submitPerson()" type="submit">
+			</form>
+			<form class="form-horizontal">
+				Number of groups...
+				<input ng-model="number" type="text" name="number" placeholder="Number...">
+				<input type="submit" class="btn btn-success" ng-click="submitNumber()">
+			</form>
+			<h2>Your People</h2>
+			<div class="group large-group">
+				<ul>
+					<li ng-repeat="person in group">{{person}}</li>
+				</ul>
+			</div>
+			<h2>Your Groups</h2>
+			<div class="row">
+				<div ng-repeat="group in groups" class="small-group group col-xs-6 col-sm-4 col-md-2 col-lg-2">
+					<ul>
+						<li ng-repeat="person in group">{{person}}</li>
+					</ul>
+				</div>
+			</div>
+			<script src="groupr.js"></script>
+			<script src="grouprfactory.js"></script>
+		</div>
 	</body>
 </html>
