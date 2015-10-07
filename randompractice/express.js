@@ -19,6 +19,9 @@ var app = express();
 
 // APPLICATION CONFIGURATION 
 
+// YOU WANT ALL OF THESE APP.USE FUNCTIONS TO RUN ON EVERYTHING, before all of the other functions are called
+app.use(bodyParser.json())
+
 app.use(bodyParser.urlencoded({extended:true}));
 // THE LINE ABOVE TELLS THE BROWSER TO UNENCODE THE URL ENCODED STRING
 // BODY PARSER HELPS INTERPRET DATA THAT IS COMING FROM A BROWSER
@@ -39,7 +42,7 @@ app.use(bodyParser.json());
 // static method accepts argument that tells it where to find static files
 // CURRENT DIRECTORY + PUBLIC
 // app.use(express.static(_dirname + '/public'));
-app.use(express.static("./public"))
+app.use(express.static("./breakoutgroup"))
 // DIRNAME REFERS TO ROOT OF APP
 // ./ refers to current location
 
@@ -51,11 +54,43 @@ app.use(express.static("./public"))
 
 // ROUTEs
 
+// EXPRES LOOKS AT THESE TOP TO BOTTOM TO DECIDE WHICH ONE IS APPROPRIATE
+
+// STATIC ROUTES SHOULD APPEAR ABOVE DYNAMIC ROUTES... IF USER ENTERS A SPECIFIC ROUTE, THAT'S PROBABLY WHAT THEY WANT!
+
+app.get('/whatever',function(request,response,next){
+	// console.log("This is the whatever route!")
+	next()
+	response.send("whatever...")
+})
+
+app.get("/:someParameter",function(request,response,next){
+	if(request.params.someParameter === "error"){
+		next(new Error("my custom error"))
+	}
+	response.send(request.params.someParameter)
+})
 
 // JUST THE FORWARD SLASH REFERS TO THE HOME PAGE (WHAT SOMEONE GETS WHEN THEY ENTER YOURSITE.COM)
 app.get("/",function(req,res){
-	res.sendFile('hello.html',{root: './public'});
+	res.sendFile('index.html',{root: './breakoutgroup'});
 })
+
+app.post("/submit",function(request,response){
+	response.redirect("/" + request.body.book)
+})
+
+// app.get("/submit",function(request,response){
+// 	response.send("Thanks for the info, sucker!")
+// })
+
+app.get("/:book",function(request,response){
+	console.log(request.query)
+	response.send("Thanks for submitting your favorites!\nBook: " + request.params.book)
+})
+
+// EVERY DYNAMIC PIECE IS DENOTED WITH A COLON
+
 // YOU HAVE TO TELL EXPRESS WHAT THE FILE IS AND WHERE THE FILE IS
 // YOU CANT PUT A STATIC FILE INTO A SEND REQUEST; SEND WILL READ IT AS A STRING LITERAL
 
@@ -106,9 +141,13 @@ app.get('/*',function(req,res){
 })
 // THIS FUNCTION RUNS WHEN SOMEONE REQUESTS THE HOME ROUTE
 
+// EXPRESS MAGICALLY KNOWS THAT THE FUNCTION BELOW IS AN ERROR HANDLING FUNCTION
+// APP.USE WILL MATCH ANY REQUEST TYPE
 
-
-
+app.use(function(error,request,response,next){
+	console.log("500 error")
+	response.send("oops! Something went wrong")
+})
 
 // CREATING SERVER AND LISTENING FOR CONNETIONGS
 
