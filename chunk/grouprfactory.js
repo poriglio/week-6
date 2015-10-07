@@ -2,6 +2,10 @@ groupr.factory("grouprFactory",function(){
 
 	var group = []
 
+	var Person = function(name){
+		this.name = name
+	}
+
 	var groupr = function (array, number){
 		var newArray = [];
 		var smallArray = [];

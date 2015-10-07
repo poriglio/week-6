@@ -24,14 +24,14 @@
 			<h2>Your People</h2>
 			<div class="group large-group">
 				<ul>
-					<li ng-repeat="person in group">{{person}}</li>
+					<li ng-repeat="person in oldGroup">{{person.name}}</li>
 				</ul>
 			</div>
 			<h2>Your Groups</h2>
 			<div class="row">
 				<div ng-repeat="group in groups" class="small-group group col-xs-6 col-sm-4 col-md-2 col-lg-2">
 					<ul>
-						<li ng-repeat="person in group">{{person}}</li>
+						<li ng-repeat="person in group">{{person.name}}</li>
 					</ul>
 				</div>
 			</div>
