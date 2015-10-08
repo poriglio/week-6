@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="videoApp">
+	<head>
+		<title>Video Contest</title>
+		<meta charset="utf-8">
+		<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href="css/styles.css" rel="stylesheet">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular.min.js"></script>
+	</head>
+	<body ng-controller="videoController">
+		<h1>Video Contest</h1>
+		<h2>{{intro}}</h2>
+		<form action="/submit" method="POST" ng-submit="videoSubmit()">
+			<input type="text" ng-model="submission.name" name="name" placeholder="your name">
+			<input type="text" ng-model="submission.url" placeholder="video URL">
+			<input type="text" ng-model="submission.title" placeholder="title of video">
+			<input type="text" ng-model="submission.about" placeholder="description of video">
+			<input type="submit">
+		</form>
+		<button type="button"><a href="html/videosubmissions.html">View Submissions</a></button>
+		<script src="js/main.js"></script>
+	</body>
+</html>

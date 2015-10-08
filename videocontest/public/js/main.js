@@ -4,16 +4,8 @@ module.controller("videoController",["$scope","$http",function($scope,$http){
 
 	$scope.intro = "Welcome to my Video Contest!"
 
-	$http.get('/getsubmissions').then(function(returnData){
-		$scope.submissions = returnData.data
-	})
-
 	$scope.videoSubmit = function(){
 		console.log($scope.submission)
-		$http.post('/submit',$scope.submission).then(function(returnData){
-			console.log("Your return data is: " + returnData.data)
-			$scope.submissions = returnData.data
-		})
 	}
 
 }])

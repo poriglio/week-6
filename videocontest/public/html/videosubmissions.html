@@ -4,14 +4,19 @@
 		<title>Video Contest</title>
 		<meta charset="utf-8">
 		<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-		<link href="styles.css" rel="stylesheet">
+		<link href="../css/styles.css" rel="stylesheet">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular.min.js"></script>
 	</head>
 	<body ng-controller="videoController">
 		<h1>Video Contest</h1>
 		<h2>{{intro}}</h2>
 		<p>Look at all the awesome entries we've received! Have fun watching and voting!</p>
-		<iframe width="560" height="315" src="//www.youtube.com/embed/v2ifWcnQs6M?list=PL5586336C26BDB324" frameborder="0" allowfullscreen></iframe>
-		<script src="main.js"></script>
+		<div ng-repeat="entry in entries">
+			<h3>{{entry.title}}</h3>
+			<h2>{{entry.name}}</h2>
+			<p>{{entry.description}}</p>
+			<iframe width="560" height="315" ng-src="{{entry.url}}" frameborder="0" allowfullscreen></iframe>
+		</div>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
