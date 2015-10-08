@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="thursdayApp">
+	<head>
+		<meta charset="utf-8">
+		<title>App</title>
+		<link href="css/styles.css" rel="stylesheet"> 
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js" type="text/javascript"></script>
+	</head>
+	<body ng-controller="thursdayController">
+		<h1>Hello, Paula!</h1>
+		<h3>{{greeting}}</h3>
+		<form ng-submit="thursdayPlans()">
+			<input ng-model="thursday.lunch" type="text" placeholder="Lunch plans?">
+			<input ng-model="thursday.evening" type="text" placeholder="Plans after class?">
+			<input type="submit">
+		</form>
+		<ul ng-repeat="plan in plans">
+			<h3>Plans</h3>
+			<li>Lunch: {{plan.lunch}}</li>
+			<li>Evening:<span ng-repeat="thing in plan.evening">{{thing}}, </span></li>
+		</ul>
+		<script src="/js/main.js" type="text/javascript"></script>
+	</body>
+</html>
+
+<!-- Sumbit takes care of click on submit button as well as enter on form -->
