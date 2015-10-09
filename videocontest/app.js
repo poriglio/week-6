@@ -5,6 +5,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 
+var submissionsController = require("./controllers/submissionscontroller.js")
+
 // -=-=-=-=-=-=-=-=-=-=-=-=-
 // CREATE EXPRESS APP OBJECT
 // -=-=-=-=-=-=-=-=-=-=-=-=-
@@ -38,16 +40,18 @@ app.get("/",function(request,response){
 	}
 })
 
-app.post("/submit",function(request,response){
-	if(entries<8){
-		entries++
-		console.log(entries)
-		response.send("Thank you for your submission, " + request.body.name)
-	}
-	else{
-		response.send("We're sorry, but the contest is full!")
-	}
-})
+app.post("/createVideos",submissionsController.createVideos)
+
+	// if(entries<8){
+	// 	entries++
+	// 	console.log(entries)
+	// 	response.send("Thank you for your submission, " + request.body.name)
+	// }
+	// else{
+	// 	response.send("We're sorry, but the contest is full!")
+	// }
+
+app.get("/getMovies",submissionsController.getMovies)
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // CREATE SERVER, LISTEN FOR CONNETIONS

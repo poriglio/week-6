@@ -1,3 +1,5 @@
+// THIS IS A CONTROLLER
+
 var thursdayModel = require("../models/thursdayplans.js");
 
 // EXPORT SO WE CAN ACCESS METHODS IN APP.JS

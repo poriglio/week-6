@@ -1,3 +1,5 @@
+// THIS IS A MODEL
+
 var thursdayPlans = []
 
 var Plan = function(thursdayModel){
